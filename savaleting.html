@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SA Valeting & Detailing - Professional Car Care</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="savaleting.css">
+    <script src="savaleting.js"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo-container">
+                <img width="60" src="officalLogoSA.jpeg" alt="">
+                <div class="logo-text">SA Valeting & Detailing</div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+   <section id="home" class="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+        <source src="https://videos.pexels.com/video-files/4863282/4863282-sd_640_360_30fps.mp4" type="video/mp4">
+        <img src="https://placehold.co/1920x1080/4A5568/FFFFFF?text=Car+Detailing+Background" alt="Car Detailing Background">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="location-tag">
+        </div>
+        <h1> Excellence. Every Time.</h1>
+        <p class="hero-tagline"><i class="fas fa-map-marker-alt"></i> Proudly Serving Leicester & Surrounding Areas</p>
+        <ul class="hero-features">
+            <li style="--delay: 0.8s;"><i class="fas fa-check-circle"></i> Premium-Grade Products</li>
+            <li style="--delay: 0.9s;"><i class="fas fa-check-circle"></i> Certified Detailing Experts</li>
+            <li style="--delay: 1.0s;"><i class="fas fa-check-circle"></i> Eco-Friendly & Safe Solutions</li>
+            <li style="--delay: 1.1s;"><i class="fas fa-check-circle"></i> 100% Satisfaction Guarantee</li>
+        </ul>
+        <div class="hero-buttons">
+            <a href="#services" class="cta-button">View Services</a>
+            <button class="cta-button cta-secondary" onclick="openModal('bookingModal', 'Elite Full Service')">Book Your Detail</button>
+        </div>
+    </div>
+</section>
+
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Premium Services</h2>
+            <p class="section-subtitle">Professional car care tailored to your vehicle's needs</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="service-title">Express Wash & Shine</div>
+                    </div>
+                    <ul class="service-features">
+                        <li>Premium pH-neutral hand wash</li>
+                        <li>High-quality wax application & streak-free drying</li>
+                        <li>Wheel faces cleaned with non-acidic cleaner</li>
+                        <li>Door jambs wiped clean</li>
+                        <li>Windows polished (exterior)</li>
+                        <li>Tyre shine applied</li>
+                    </ul>
+                    <div class="service-pricing">
+                        <div class="pricing-row">
+                            <span class="vehicle-type">Cars:</span>
+                            <span class="price">£18.90</span>
+                        </div>
+                        <div class="pricing-row">
+                            <span class="vehicle-type">SUVs/MPVs:</span>
+                            <span class="price">£28.50</span>
+                        </div>
+                    </div>
+                    <button class="book-btn" onclick="openModal('bookingModal', 'Express Wash & Shine')">📅 Book Now</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-broom"></i>
+                        </div>
+                        <div class="service-title">Interior Refresh</div>
+                    </div>
+                    <ul class="service-features">
+                        <li>Full vacuum (seats, boot, crevices)</li>
+                        <li>Dashboard & console cleaned + UV protection</li>
+                        <li>Interior windows polished (anti-fog)</li>
+                        <li>Door jambs cleaned</li>
+                        <li>Tyre dressing applied</li>
+                    </ul>
+                    <div class="service-pricing">
+                        <div class="pricing-row">
+                            <span class="vehicle-type">Cars:</span>
+                            <span class="price">£32.50</span>
+                        </div>
+                        <div class="pricing-row">
+                            <span class="vehicle-type">SUVs/MPVs:</span>
+                            <span class="price">£41.90</span>
+                        </div>
+                    </div>
+                    <button class="book-btn" onclick="openModal('bookingModal', 'Interior Refresh')">📅 Book Now</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="premium-badge">POPULAR</div>
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <div class="service-title">Platinum Detail</div>
+                    </div>
+                    <ul class="service-features">
+                        <li>Hand wash with <strong>Ceramic Boost Wax</strong></li>
+                        <li>Wheels degreased & sealed</li>
+                        <li>Deep vacuum + compressed air detailing</li>
+                        <li>Interior/exterior window polish (rain repellent)</li>
+                        <li>Bumper/trim restoration</li>
+                        <li>Leather/plastic protection</li>
+                    </ul>
+                    <div class="service-pricing">
+                        <div class="pricing-row">
+                            <span class="vehicle-type">Cars:</span>
+                            <span class="price">£49.90</span>
+                        </div>
+                        <div class="pricing-row">
+                            <span class="vehicle-type">SUVs/MPVs:</span>
+                            <span class="price">£64.50</span>
+                        </div>
+                    </div>
+                    <button class="book-btn" onclick="openModal('bookingModal', 'Platinum Detail')">📅 Book Now</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="service-title">Showroom Shine</div>
+                    </div>
+                    <ul class="service-features">
+                        <li><strong>Paint correction prep</strong> + hand wax</li>
+                        <li>Wheel decontamination & sealant</li>
+                        <li>Engine bay degrease (basic)</li>
+                        <li>Full interior UV protection</li>
+                        <li>Fabric/stain treatment (optional)</li>
+                    </ul>
+                    <div class="service-pricing">
+                        <div class="pricing-row">
+                            <span class="vehicle-type">Cars:</span>
+                            <span class="price">£69.90</span>
+                        </div>
+                        <div class="pricing-row">
+                            <span class="vehicle-type">SUVs/MPVs:</span>
+                            <span class="price">£89.90</span>
+                        </div>
+                    </div>
+                    <button class="book-btn" onclick="openModal('bookingModal', 'Showroom Shine')">📅 Book Now</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <div class="service-title">Total Interior Rescue</div>
+                    </div>
+                    <ul class="service-features">
+                        <li><strong>Seat shampoo/extraction</strong> (all rows)</li>
+                        <li>Stain removal + odor neutralization</li>
+                        <li>Headliner/vent cleaning</li>
+                        <li>Leather conditioning</li>
+                        <li>Carpets steam-cleaned</li>
+                    </ul>
+                    <div class="service-pricing">
+                        <div class="pricing-row">
+                            <span class="vehicle-type">Cars:</span>
+                            <span class="price">£94.90</span>
+                        </div>
+                        <div class="pricing-row">
+                            <span class="vehicle-type">SUVs/MPVs:</span>
+                            <span class="price">£109.90</span>
+                        </div>
+                    </div>
+                    <button class="book-btn" onclick="openModal('bookingModal', 'Total Interior Rescue')">📅 Book Now</button>
+                </div>
+
+                <div class="service-card">
+                    <div class="premium-badge">ELITE</div>
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div class="service-title">Elite Full Service</div>
+                    </div>
+                    <ul class="service-features">
+                        <li><strong>Ceramic-coated wash</strong> + clay bar treatment</li>
+                        <li><strong>Paint sealant</strong> for 6-month protection</li>
+                        <li>Engine bay detailed</li>
+                        <li><strong>Carpet/fabric sanitization</strong></li>
+                        <li>Undercarriage rinse</li>
+                        <li><strong>FREE</strong> air freshener + touch-up kit</li>
+                    </ul>
+                    <div class="service-pricing">
+                        <div class="pricing-row">
+                            <span class="vehicle-type">Starting from:</span>
+                            <span class="price">£149.90</span>
+                        </div>
+                        <div style="font-size: 0.9rem; color: #666; text-align: center; margin-top: 0.5rem;">
+                            *Custom quote based on vehicle
+                        </div>
+                    </div>
+                    <button class="book-btn" onclick="openModal('bookingModal', 'Elite Full Service')">📅 Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="addons">
+        <div class="container">
+            <h2 class="section-title">Add-On Services</h2>
+            <p class="section-subtitle">Enhance your service with our popular add-ons</p>
+            <div class="addons-grid">
+                <div class="addon-card">
+                    <div class="addon-icon">
+                        <i class="fas fa-dog"></i>
+                    </div>
+                    <h4>Pet Hair Removal</h4>
+                    <p class="price">+£15</p>
+                    <p>Specialized removal of pet hair from all surfaces</p>
+                </div>
+                <div class="addon-card">
+                    <div class="addon-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h4>Exterior Trim Blackening</h4>
+                    <p class="price">+£12</p>
+                    <p>Restore black trim to factory appearance</p>
+                </div>
+                <div class="addon-card">
+                    <div class="addon-icon">
+                        <i class="fas fa-headlights"></i> </div>
+                    <h4>Headlight Restoration</h4>
+                    <p class="price">+£25</p>
+                    <p>Clear cloudy headlights for better visibility</p>
+                </div>
+                <div class="addon-card">
+                    <div class="addon-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h4>Tree Sap/Tar Removal</h4>
+                    <p class="price">£10-£30</p>
+                    <p>Safe removal of stubborn contaminants</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About SA Valeting & Detailing</h2>
+            <p class="section-subtitle">Your trusted partner for pristine vehicle care</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Passionate About Perfection</h2>
+                    <p>At SA Valeting & Detailing, we believe your car deserves the best. Founded by automotive enthusiasts, our mission is to provide unparalleled valeting and detailing services that not only clean but truly rejuvenate your vehicle.</p>
+                    <p>We use only the highest quality, eco-friendly products and advanced techniques to ensure a flawless finish every time. Our team is meticulously trained and passionate about restoring the sparkle and protecting the integrity of your car.</p>
+                    <ul class="about-features">
+                        <li>Experienced and Certified Detailers</li>
+                        <li>Premium, Eco-Friendly Products</li>
+                        <li>State-of-the-Art Equipment</li>
+                        <li>Customer Satisfaction Guaranteed</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.pexels.com/photos/3807218/pexels-photo-3807218.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Car Detailing">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">What Our Customers Say</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Hear from happy car owners who trust us with their vehicles</p>
+            <div class="testimonials-slider-container">
+                <div class="testimonials-grid">
+                    <div class="testimonial">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Absolutely blown away by the Platinum Detail! My car looks better than when I bought it new. The team was professional and the results speak for themselves."</p>
+                        <p class="testimonial-author">- John D.</p>
+                    </div>
+                    <div class="testimonial">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="testimonial-text">"The Interior Refresh transformed my family SUV. All the kids' messes gone, and it smells fantastic. Highly recommend their services!"</p>
+                        <p class="testimonial-author">- Sarah P.</p>
+                    </div>
+                    <div class="testimonial">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Consistent quality every time I visit for an Express Wash. Quick, efficient, and always leaves my car shining. Best in town!"</p>
+                        <p class="testimonial-author">- Mark R.</p>
+                    </div>
+                     <div class="testimonial">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="testimonial-text">"The Elite Full Service was worth every penny. My car feels brand new, inside and out. The ceramic coating is amazing!"</p>
+                        <p class="testimonial-author">- Emily S.</p>
+                    </div>
+                </div>
+                <button class="slider-nav-btn prev" onclick="changeTestimonial(-1)"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-nav-btn next" onclick="changeTestimonial(1)"><i class="fas fa-chevron-right"></i></button>
+                <div class="slider-dots">
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch / Book Your Service</h2>
+            <p class="section-subtitle">We're here to make your vehicle shine! Contact us or book your appointment easily online.</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <p>+44 20 1234 5678</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@savaleting.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <p>Mon-Sat: 9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about-us">
+                    <h4>SA Valeting & Detailing</h4>
+                    <p>Your premium car care destination. We transform and protect your vehicle with expert service and top-tier products.</p>
+                </div>
+                <div class="footer-section links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact-info">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-phone-alt"></i> +44 20 1234 5678</p>
+                    <p><i class="fas fa-envelope"></i> info@savaleting.com</p>
+                </div>
+                <div class="footer-section social">
+                    <h4>Follow Us</h4>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SA Valeting & Detailing. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Book Your Service</h2>
+                <span class="close-btn" onclick="closeModal('bookingModal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="modalBookingForm">
+                    <div class="form-group">
+                        <label for="modalName">Your Name</label>
+                        <input type="text" id="modalName" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="modalPhone">Phone Number</label>
+                        <input type="tel" id="modalPhone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="modalService">Choose Service</label>
+                        <select id="modalService" name="service" required>
+                            <option value="">-- Select a Service --</option>
+                            <option value="Express Wash & Shine">Express Wash & Shine</option>
+                            <option value="Interior Refresh">Interior Refresh</option>
+                            <option value="Platinum Detail">Platinum Detail</option>
+                            <option value="Showroom Shine">Showroom Shine</option>
+                            <option value="Total Interior Rescue">Total Interior Rescue</option>
+                            <option value="Elite Full Service">Elite Full Service</option>
+                        </select>
+                    </div>
+                      <div class="form-group">
+                        <label>Address*</label>
+                        <div class="address-grid">
+                            <input type="text" name="housenumber" placeholder="House Number/Name" required>
+                            <input type="text" name="address" placeholder="Street Address" required>
+                            <input type="text" name="postcode" placeholder="Post Code" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modalMessage">Additional Notes (optional)</label>
+                        <textarea id="modalMessage" name="message" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Booking</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="thankYouModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('thankYouModal')">&times;</span>
+            <i class="fas fa-check-circle"></i>
+            <h3>Thank You for Your Booking!</h3>
+            <p>Your request has been received. We will contact you shortly to confirm your appointment details.</p>
+            <button class="close-btn" onclick="closeModal('thankYouModal')">Close</button>
+        </div>
+    </div>
+</body>
+</html>

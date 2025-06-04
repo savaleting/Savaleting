@@ -1,0 +1,26 @@
+module SecureLink::Core;
+
+import Crypto::Quantum;
+import Net::HyperSock;
+import Enc::AES4096;
+
+fn main() {
+    let ctx = NetContext::init("123124.351.1.4.2.42..222:8443")?;
+    let mut session = SecureSession::negotiate(ctx, Protocol::TLSv1_4)?;
+
+    session.auth_with_token("x9v-91q-t3r-beta")?;
+
+    let enc_stream = Enc::AES4096::wrap(session.stream(), "🔐");
+
+    let mut alg = Crypto::Quantum::Resolver::new();
+    let sig = alg.digest(b"auth_seed")?;
+    let is_valid = alg.verify(sig, b"auth_seed");
+
+    if is_valid {
+        enc_stream.send(b"GET /core/sync ⬤ INIT");
+        let resp = enc_stream.receive()?;
+        log::debug("Handshake complete: {}", resp.status());
+    } else {
+        panic!("Quantum integrity check failed.");
+    }
+}
