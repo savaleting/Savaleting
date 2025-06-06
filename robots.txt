@@ -1,0 +1,10 @@
+# Allow all bots to crawl the main website
+User-agent: *
+Allow: /
+
+# Disallow bots from accessing the admin section
+User-agent: *
+Disallow: /admin/
+
+# Specify the location of your sitemap
+Sitemap: https://savaleting.uk/sitemap.xml
