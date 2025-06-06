@@ -5,10 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const testimonialDotsContainer = document.querySelector('.slider-dots');
             const testimonials = document.querySelectorAll('.testimonial');
             let currentTestimonialIndex = 0;
-            let testimonialInterval; // Declare interval variable globally for clearInterval
+            let testimonialInterval;
 
             // --- Hamburger menu toggle ---
-            // Ensure elements exist before adding listener
             if (hamburger && navMenu) {
                 hamburger.addEventListener('click', () => {
                     hamburger.classList.toggle('active');
@@ -19,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Close mobile menu when a navigation link is clicked
             document.querySelectorAll('.nav-menu a').forEach(item => {
                 item.addEventListener('click', () => {
-                    if (hamburger && navMenu) { // Ensure elements exist
+                    if (hamburger && navMenu) {
                         hamburger.classList.remove('active');
                         navMenu.classList.remove('active');
                     }
@@ -27,108 +26,103 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             // --- Modal Functionality ---
-            // Function to open any modal
             window.openModal = function(modalId, serviceName = '') {
                 const modal = document.getElementById(modalId);
                 if (modal) {
-                    // Set display to flex first, then add 'show' class for transition
                     modal.style.display = "flex";
-                    // Using setTimeout to ensure display change registers before transition
                     setTimeout(() => {
                         modal.classList.add('show');
-                    }, 10); // A very small delay
+                    }, 10);
                     
                     if (modalId === 'bookingModal' && serviceName) {
                         const modalServiceSelect = document.getElementById('modalService');
-                        if (modalServiceSelect) { // Ensure the select element exists
+                        if (modalServiceSelect) {
                             modalServiceSelect.value = serviceName;
                         }
                     }
                 }
             }
 
-            // Function to close any modal
             window.closeModal = function(modalId) {
                 const modal = document.getElementById(modalId);
                 if (modal) {
-                    modal.classList.remove('show'); // Start fade-out/slide-up transition
-                    // After transition, set display to none
-                    // Use a named function for the event listener to allow removal
+                    modal.classList.remove('show');
                     const handler = function() {
                         modal.style.display = "none";
-                        modal.removeEventListener('transitionend', handler); // Remove listener after execution
+                        modal.removeEventListener('transitionend', handler);
                     };
-                    // Add listener to the modal itself, for its 'opacity' transition
                     modal.addEventListener('transitionend', handler);
                 }
             }
 
-            // Close modal when clicking outside content (on the modal overlay)
             window.onclick = function(event) {
-                // Check if the clicked element is a modal overlay (has 'modal' class but not 'modal-content' or its children)
                 if (event.target.classList.contains('modal')) {
                     closeModal(event.target.id);
                 }
             }
 
-            // --- Form Submission Handling ---
+            // --- Form Submission Handling with EmailJS ---
             function handleFormSubmission(event) {
-                event.preventDefault(); // Prevent default form submission (page reload)
+                event.preventDefault();
                 const form = event.target;
                 const formData = new FormData(form);
                 const data = {};
                 for (let [key, value] of formData.entries()) {
                     data[key] = value;
                 }
-                console.log('Booking Data:', data); // Log form data for debugging
 
-                // Close the booking modal (if it was opened from a modal)
-                const parentModal = form.closest('.modal');
-                if (parentModal) {
-                    closeModal(parentModal.id);
-                }
-                
-                form.reset(); // Reset the form fields
-                openModal('thankYouModal'); // Show the thank you popup
+                // Prepare the EmailJS template parameters
+                const templateParams = {
+                    name: data.name,
+                    phonenumber: data.phone,
+                    service: data.service,
+                    Add: data.addon || 'None',
+                    address: data.address,
+                    housenumber: data.housenumber,
+                    postcode: data.postcode,
+                    preferreddate: data.date,
+                    preferredtime: data.time,
+                    message: data.message || 'No additional notes'
+                };
+
+                // Send the email using EmailJS
+                emailjs.send('service_vqsum0k', 'template_6twuaeh', templateParams)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        const parentModal = form.closest('.modal');
+                        if (parentModal) {
+                            closeModal(parentModal.id);
+                        }
+                        form.reset();
+                        openModal('thankYouModal');
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                        alert('Failed to send booking request. Please try again or contact us directly.');
+                    });
             }
 
-            // Attach event listeners to both main and modal booking forms
-            const mainBookingForm = document.getElementById('mainBookingForm');
+            // Attach event listener to the booking form
             const modalBookingForm = document.getElementById('modalBookingForm');
-
-            if (mainBookingForm) {
-                mainBookingForm.addEventListener('submit', handleFormSubmission);
-            }
             if (modalBookingForm) {
                 modalBookingForm.addEventListener('submit', handleFormSubmission);
             }
 
-            // Set min date for date input to today to prevent past date selection
+            // Set min date for date input to today
             const today = new Date();
             const dd = String(today.getDate()).padStart(2, '0');
-            const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
             const YYYY = today.getFullYear();
             const minDate = YYYY + '-' + mm + '-' + dd;
 
-            const mainDateInput = document.getElementById('mainDate');
             const modalDateInput = document.getElementById('modalDate');
-
-            if (mainDateInput) {
-                mainDateInput.setAttribute('min', minDate);
-            }
             if (modalDateInput) {
                 modalDateInput.setAttribute('min', minDate);
             }
 
             // --- Testimonials Slider Functionality ---
             function showTestimonial(index) {
-                // Ensure testimonials container and testimonials exist
-                if (!testimonialsContainer || testimonials.length === 0) {
-                    console.warn("Testimonials slider elements not found or no testimonials.");
-                    return; // Exit if elements are missing
-                }
+                if (!testimonialsContainer || testimonials.length === 0) return;
 
-                // Loop the index if it goes out of bounds
                 if (index >= testimonials.length) {
                     currentTestimonialIndex = 0;
                 } else if (index < 0) {
@@ -137,59 +131,48 @@ document.addEventListener('DOMContentLoaded', function() {
                     currentTestimonialIndex = index;
                 }
 
-                // Calculate the translation needed to show the current testimonial
                 const offset = -currentTestimonialIndex * 100;
                 testimonialsContainer.style.transform = `translateX(${offset}%)`;
 
-                // Update active dot indicator
                 document.querySelectorAll('.dot').forEach((dot, i) => {
-                    if (i === currentTestimonialIndex) {
-                        dot.classList.add('active');
-                    } else {
-                        dot.classList.remove('active');
-                    }
+                    dot.classList.toggle('active', i === currentTestimonialIndex);
                 });
             }
 
-            // Function to change testimonial by a given step (+1 for next, -1 for prev)
             window.changeTestimonial = function(step) {
-                clearInterval(testimonialInterval); // Clear auto-advance on manual navigation
+                clearInterval(testimonialInterval);
                 showTestimonial(currentTestimonialIndex + step);
-                startTestimonialAutoAdvance(); // Restart auto-advance after manual change
+                startTestimonialAutoAdvance();
             };
 
             function createDots() {
-                if (!testimonialDotsContainer || testimonials.length === 0) {
-                    return; // Exit if elements are missing
-                }
-                testimonialDotsContainer.innerHTML = ''; // Clear any existing dots
+                if (!testimonialDotsContainer || testimonials.length === 0) return;
+                testimonialDotsContainer.innerHTML = '';
                 testimonials.forEach((_, i) => {
                     const dot = document.createElement('span');
                     dot.classList.add('dot');
                     dot.addEventListener('click', () => {
-                        clearInterval(testimonialInterval); // Clear auto-advance on dot click
+                        clearInterval(testimonialInterval);
                         showTestimonial(i);
-                        startTestimonialAutoAdvance(); // Restart auto-advance
+                        startTestimonialAutoAdvance();
                     });
                     testimonialDotsContainer.appendChild(dot);
                 });
-                showTestimonial(0); // Show the first testimonial initially
+                showTestimonial(0);
             }
 
             function startTestimonialAutoAdvance() {
-                clearInterval(testimonialInterval); // Clear any existing interval to prevent duplicates
+                clearInterval(testimonialInterval);
                 testimonialInterval = setInterval(() => {
                     showTestimonial(currentTestimonialIndex + 1);
-                }, 5000); // Change testimonial every 5 seconds
+                }, 5000);
             }
 
-            // Initialize dots and auto-advance only if testimonials exist
             if (testimonials.length > 0) {
-                createDots(); // Initialize dots
-                startTestimonialAutoAdvance(); // Start auto-advance on load
+                createDots();
+                startTestimonialAutoAdvance();
             }
 
-            // Pause auto-advance on hover for the entire slider container
             const sliderContainer = document.querySelector('.testimonials-slider-container');
             if (sliderContainer) {
                 sliderContainer.addEventListener('mouseover', () => clearInterval(testimonialInterval));

@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="savaleting.css">
     <script src="savaleting.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script>
-    // Initialize EmailJS with your public key
-    (function() {
-        emailjs.init('A4PJ4A45dBenn_4Pk');
-    })();
-</script>
+    <script>
+        // Initialize EmailJS with your public key
+        (function() {
+            emailjs.init('A4PJ4A45dBenn_4Pk');
+        })();
+    </script>
 </head>
 <body>
     <header class="header">
@@ -263,8 +263,6 @@
         </div>
     </section>
 
-   
-
     <section id="testimonials" class="testimonials">
         <div class="container">
             <h2 class="section-title" style="color: white;">What Our Customers Say</h2>
@@ -385,7 +383,7 @@
                     
                     <div class="form-group">
                         <label for="modalPhone">Phone Number</label>
-                        <input type="tel" id="modalPhone" name="phone">
+                        <input type="tel" id="modalPhone" name="phone" required>
                     </div>
                     <div class="form-group">
                         <label for="modalService">Choose Service</label>
