@@ -298,7 +298,7 @@
 
         .service-card {
             background: white;
-            padding: 2.5rem;
+            padding: 1.5rem;
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.08);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Springy transition */
@@ -359,7 +359,6 @@
         .service-features li {
             padding: 0.6rem 0; /* More padding */
             border-bottom: 1px dashed #f0f0f0; /* Dashed border */
-            display: flex;
             align-items: center;
             font-size: 1.05rem;
         }
