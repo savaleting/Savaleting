@@ -249,15 +249,57 @@
                     </div>
                     <h4>Pet Hair Removal</h4>
                     <p class="price">+£30</p>
-                    <p>Specialized removal of pet hair from all surfaces</p>
+                    <p>Specialized removal of pet hair from all surfaces.</p>
                 </div>
+                <!-- New Add-ons Start Here -->
+                <div class="addon-card">
+                    <div class="addon-icon">
+                        <i class="fas fa-chair"></i>
+                    </div>
+                    <h4>Deep Clean Seat</h4>
+                    <p class="price">+£20</p>
+                    <p>Thorough deep cleaning and stain treatment for car seats.</p>
+                </div>
+                <div class="addon-card">
+                    <div class="addon-icon">
+                        <i class="fas fa-baby-car"></i>
+                    </div>
+                    <h4>Deep Clean Child Car Seat</h4>
+                    <p class="price">+£30</p>
+                    <p>Specialized deep cleaning and sanitization for child car seats.</p>
+                </div>
+                <div class="addon-card">
+                    <div class="addon-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h4>Engine Bay Cleaned</h4>
+                    <p class="price">+£45</p>
+                    <p>Professional cleaning and dressing of the engine bay for a pristine look.</p>
+                </div>
+                <div class="addon-card">
+                    <div class="addon-icon">
+                        <i class="fas fa-spray-can"></i>
+                    </div>
+                    <h4>High Pressure Interior Steam Clean</h4>
+                    <p class="price">+£55</p>
+                    <p>Intensive steam cleaning of interior surfaces for deep sanitization.</p>
+                </div>
+                <div class="addon-card">
+                    <div class="addon-icon">
+                        <i class="fas fa-car-alt"></i>
+                    </div>
+                    <h4>Soft Roof Deep Clean</h4>
+                    <p class="price">+£139</p>
+                    <p>Specialized deep cleaning and protection for convertible soft tops.</p>
+                </div>
+                <!-- New Add-ons End Here -->
                 <div class="addon-card">
                     <div class="addon-icon">
                         <i class="fas fa-paint-brush"></i>
                     </div>
                     <h4>Exterior Trim Blackening</h4>
                     <p class="price">+£30</p>
-                    <p>Restore black trim to factory appearance</p>
+                    <p>Restore black trim to factory appearance.</p>
                 </div>
             </div>
         </div>
@@ -392,7 +434,7 @@
                         <select id="modalService" name="service" required>
                             <option value="">-- Select a Service --</option>
                             <option value="Express Wash & Shine">Express Wash & Shine</option>
-                            <option value="Interior Refresh">Interior Refresh</option>
+                            <option value="Interior Refresh">Interior Only</option>
                             <option value="Platinum Detail">Platinum Detail</option>
                             <option value="Showroom Shine">Showroom Shine</option>
                             <option value="Total Interior Rescue">Total Interior Rescue</option>
@@ -400,13 +442,18 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="modalAddon">Add-On Service (Optional)</label>
-                        <select id="modalAddon" name="addon">
-                            <option value="None">No Add-on</option>
-                            <option value="Pet Hair Removal (+£30)">Pet Hair Removal (+£30)</option>
-                            <option value="Exterior Trim Blackening (+£30)">Exterior Trim Blackening (+£30)</option>
-                        </select>
-                    </div>
+    <label for="modalAddon">Add-On Service (Optional)</label>
+    <select id="modalAddon" name="addon">
+        <option value="None">No Add-on</option>
+        <option value="Pet Hair Removal (+£30)">Pet Hair Removal (+£30)</option>
+        <option value="Exterior Trim Blackening (+£30)">Exterior Trim Blackening (+£30)</option>
+        <option value="Deep Clean Seat (+£20)">Deep Clean Seat (+£20)</option>
+        <option value="Deep Clean Child Car Seat (+£30)">Deep Clean Child Car Seat (+£30)</option>
+        <option value="Engine Bay Cleaned (+£45)">Engine Bay Cleaned (+£45)</option>
+        <option value="High Pressure Interior Steam Clean (+£55)">High Pressure Interior Steam Clean (+£55)</option>
+        <option value="Soft Roof Deep Clean (+£139)">Soft Roof Deep Clean (+£139)</option>
+    </select>
+</div>
                      <div class="form-group">
                         <label>Address*</label>
                         <div class="address-grid">
